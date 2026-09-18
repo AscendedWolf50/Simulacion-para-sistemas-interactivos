@@ -1,55 +1,52 @@
-# Unidad 04
+# Unidad 05
 
 
-https://editor.p5js.org/builesjuanjo10/sketches/vF0st3f6p
-
-## Descripción del Proyecto
-*Ecos de Arrakis* es una experiencia audiovisual interactiva diseñada para la Web mediante p5.js y p5.sound. Funciona como un instrumento performativo (estilo *groovebox* o *Incredibox*) donde la organización temporal no está dictada por un secuenciador rígido ni un reloj global, sino que **emerge en tiempo real** gracias a la interacción de un sistema de agentes acoplados matemáticamente. 
-
-El proyecto toma el universo de ciencia ficción de *Dune* (Frank Herbert) no solo como capa estética, sino como metáfora sistémica: la fricción, la resonancia y la comunicación a través del desierto actúan como el medio físico que acopla a las entidades sonoras.
-
-## El Modelo de Kuramoto en el Diseño
-El núcleo del proyecto es una extensión del **Modelo de Kuramoto**. Cada agente (entidad sonora) se calcula bajo la siguiente lógica:
-
-*   **Fase ($\theta_i$):** Representa el ciclo interno del agente. Cuando la fase completa un ciclo ($2\pi$), el agente emite su sonido característico  y produce un destello visual en la arena.
-*   **Frecuencia Natural ($\omega_i$):** Es el *tempo* base al que el agente "quiere" oscilar si estuviera aislado. En la interfaz, esta variable se controla directamente mediante la posición vertical (Eje Y) del agente en el canvas.
-*   **Fuerza de Acoplamiento ($K$):** Representa la conductividad acústica o la tensión de la arena. Si $K$ es 0, cada agente suena a su propio ritmo (caos). Al aumentar $K$, los agentes se "escuchan" entre sí y obligan matemáticamente a sus fases a alinearse, creando ritmos unificados.
-*   **Topología Espacial Extendida ($d_{ij}$):** Se introdujo una modificación al modelo original integrando la distancia euclidiana entre agentes. El acoplamiento local es inversamente proporcional a la distancia: $K_{local} = \frac{K_{global}}{1 + d_{ij} \times 0.005}$. Esto permite crear sub-grupos rítmicos arrastrando los nodos por la pantalla.
-
-## Manual de Performance (Controles)
-El sistema está diseñado para ser "tocado" en vivo. Los agentes inician silenciados para permitir la construcción progresiva de la capa sonora.
-
-*   **`Click` o Teclas `1` al `8`:** Activa / Silencia (*Mute/Unmute*) a un agente. Al encenderlo, entra a negociar su fase con la red activa.
-*   **`Arrastrar (Mouse)`:** Modifica la posición del agente. El eje **Y** altera su frecuencia natural ($\omega_i$), acelerándolo o frenándolo. El eje **X** modifica su paneo estéreo y sus distancias topológicas.
-*   **`Flecha Arriba ↑` / `Flecha Abajo ↓`:** Modifica la tensión global de la arena ($K$). Úsalo para forzar transiciones entre desorden, polirritmias parciales y sincronía total.
-*   **`Z` / `X`:** Disminuye / Aumenta el multiplicador global de velocidad ($\omega_{global}$).
-*   **`SHIFT` + `1` al `8`:** Inyecta una perturbación individual a un agente activo, aleatorizando su fase y velocidad abruptamente.
-*   **`Barra Espaciadora`:** Desata la *Tormenta de Coriolis*. Es un mecanismo de perturbación global que destruye la coherencia del sistema esparciendo las fases de todos los agentes.
-*   **`H`:** Oculta/Muestra la interfaz HUD (Head-Up Display).
-
-## Personalidades Audiovisuales
-El sistema cuenta con 8 agentes divididos en 4 personalidades, cada una con un rol funcional en el espectro sonoro (diseñado mediante síntesis de ondas puras y ruido) y una representación geométrica clara:
-
-1.  **El Martillador (Bombo / Kick):** Geometría cuadrada (Rojo). Onda Senoidal con *pitch drop* rápido. Marca las frecuencias subgraves fundamentales.
-2.  **El Fremen (Shaker / Percusión aguda):** Geometría circular con partículas orbitales (Azul). Ruido blanco con envolvente muy corta. Aporta la fricción rítmica de alta frecuencia.
-3.  **La Cosechadora (Bajo Sintético):** Geometría rectangular pesada (Gris/Arena). Onda de Sierra (*Sawtooth*). Su frecuencia base escala dinámicamente según el nivel de sincronía del sistema.
-4.  **El Ornitóptero (Pluck / Melódico):** Geometría triangular (Amarillo). Onda Triangular. Ejecuta arpegios sobre una escala pentatónica, determinada por su posición en el eje Y.
-
-## Estados Colectivos y Feedback
-El sistema comunica su estado emergente mediante el cálculo del **parámetro de orden ($r$)**. 
-*   **Desorden ($r \approx 0$):** Los agentes suenan asíncronos. El desierto está opaco y estático.
-*   **Organización Parcial:** Empiezan a surgir patrones de llamada y respuesta. Se forman conexiones lumínicas visibles entre los agentes cercanos.
-*   **Sincronía Estable ($r > 0.85$):** *Clímax*. Todos los agentes disparan al unísono. El cielo se oscurece, las dunas vibran agresivamente, y emerge un **Drone de Sub-Bajo** ambiental continuo que indica que el ecosistema ha alcanzado la resonancia pura.
 
 
-| Criterio de Autoevaluación | Puntaje |
-| --- | --- |
-| Leí y verifiqué que mi proyecto cumple con los requisitos mínimos de la unidad. | 25 puntos |
-| Puedo explicar claramente qué representa cada variable del modelo de Kuramoto en mi proyecto. | 25 puntos |
-| Puedo explicar claramente cómo las variables del modelo producen el comportamiento observado en mi proyecto. | 25 puntos |
-| Puedo demostrar que mi proyecto cumple con los objetivos establecidos en la unidad. | 25 puntos |
+## 1. Concepto Visual: El Fuego Prometeico
 
-**Nota = 100% = 5.0**
+El proyecto interpreta el guion de la charla TED del **Centro de Eventos Fórum UPB** utilizando como metáfora el **Fuego Prometeico**: el conocimiento, la pasión y la transformación que no pertenecen a una sola generación, sino que se transmiten, entrelazan y potencian.
+
+En lugar de utilizar gráficos abstractos o elementos decorativos sin propósito, cada partícula en el lienzo representa un **átomo de energía, talento o experiencia**. Las partículas interactúan mediante leyes de atracción, velocidad, turbulencia y geometría para crear una gramática visual en vivo que reacciona a la narrativa del discurso.
+
+
+---
+
+## 2. Gramática Visual y Mapeo del Sistema por Diapositiva
+
+El sistema de partículas cambia de estado físico, paleta cromática y disposición geométrica para acompañar la progresión del guion:
+
+| Diapositiva | Título / Frase clave | Estructura & Geometría | Comportamiento Físico de las Partículas | Intención Comunicativa |
+| :--- | :--- | :--- | :--- | :--- |
+| **01** | *Relevo Generacional: La ventaja que nadie está aprovechando* | `loose_ring` | Antorcha central equilibrada con flujo ascendente constante. | Presenta el fuego original como una llama viva y en expectativa. |
+| **02** | *¿Un gran auditorio solo para hacer grados?* | `grid` | Lecho plano de brasas ordenadas en reposo sobre la base. | Simula la infraestructura latente, un estado pasivo pero listo para encenderse. |
+| **03** | *Los eventos no llegaron... La Universidad decidió encontrarse con el mundo* | `expanding_cloud` | **Puente de fuego:** Parábola continua que conecta horizontalmente el origen con los extremos. | Simula el acto deliberado de salir al encuentro del entorno exterior. |
+| **04** | *Academia + Industria + Ciudad* | `triad_clusters` | Tres antorchas independientes distribuidas por carril (`lane` 0, 1 y 2). | Asigna identidades cromáticas: Dorado (Academia), Rojo (Industria) y Cian (Ciudad). |
+| **05** | *Los eventos nunca fueron el objetivo. El impacto sí* | `triad_impact` | Columna central densa con ** shockwaves (ondas expansivas)** en la base. | Visualiza la fuerza contundente de un impacto real que irradia energía. |
+| **06** | *Un evento trae personas. Una comunidad trae transformación* | `constellation` | Hoguera circular/fogón comunitario en rotación constante. | Representa la cohesión y el calor colectivo que genera la permanencia en comunidad. |
+| **07** | *El talento crece a la velocidad de la confianza* | `confianza` | **Haz aerodinámico de alta velocidad:** Flujo vertical continuo hiperacelerado. | Expresa aceleración y ascenso vertical directo cuando existe el respaldo de la confianza. |
+| **08** | *La experiencia construye el camino. Las nuevas generaciones descubren nuevas rutas* | `orbital_routes` | Núcleo de experiencia orbital rodeado por espirales descendentes/ascendentes. | Muestra cómo la base sólida sirve de eje para que la juventud explore nuevas trayectorias. |
+| **09** | *Una visión. Dos generaciones* | `dual_rings` | Dos antorchas gemelas paralelas (Dorada a la izquierda, Cian a la derecha). | Evidencia la coexistencia simétrica de dos perfiles generacionales en un mismo marco. |
+| **10** | *El crecimiento ocurre cuando trabajan juntas* | `interlocking_rings` | Vórtice helicoidal entrelazado (Doble hélice de ADN). | Muestra la simbiosis e interdependencia: el crecimiento surge de la mezcla de flujos. |
+| **11** | *Los jóvenes son el presente que muchas organizaciones no ven* | `youth_forward` | Llama monumental de color cian brillante en primer plano. | Posiciona el fuego joven como el actor protagónico del presente. |
+| **12** | *El futuro no se hereda. Se construye* | `mandala` / `construcción` | **Pirámide escalonada / Columnas estructurales** bien definidas. | Aporta rigor arquitectónico: demuestra que el futuro requiere cimientos y bloques firmes. |
+| **13** | *QR / Cierre* | `qr-cierre` | Dispersión despejada hacia las esquinas inferiores del lienzo. | Enmarca la pantalla limpiando el centro para dar prioridad a los códigos QR e interacción. |
+
+
+---
+
+## 3. Autoevaluación del Proyecto
+
+| Criterio de Evaluación | Puntaje Máximo | Puntaje Asignado |
+| :--- | :---: | :---: |
+| **Cumplimiento del encargo** | 25 pts | **25 pts** |
+| **Relaciones estructurales** | 25 pts | **25 pts** |
+| **Comportamiento y significado** | 25 pts | **25 pts** |
+| **Explicación y demostración** | 25 pts | **25 pts** |
+| **TOTAL** | **100 pts** | **100 / 100** |
+
+---
+
 
 
 
